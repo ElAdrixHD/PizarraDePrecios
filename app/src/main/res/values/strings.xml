@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Pizarra de Precios</string>
+    <string name="nombre_usuario">Usuario</string>
+    <string name="contrasenia">Contraseña</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="no_tienes_cuenta">¿No tienes cuenta?</string>
+    <string name="olvido_la_contrasenia">Se me olvidó la contraseña</string>
 </resources>
