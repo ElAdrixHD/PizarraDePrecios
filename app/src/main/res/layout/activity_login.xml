@@ -4,35 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.LoginActivity"
+    tools:context=".ui.inicio.LoginActivity"
     android:background="@color/primary_light"
     android:padding="@dimen/login_padding">
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/til_login_username"
+        android:id="@+id/til_login_correo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         app:errorTextAppearance="@style/Widget.TextInputLayout.Error"
         app:hintTextAppearance="@style/Widget.TextInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/tv_inicioSesion">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/tiled_login_username"
+            android:id="@+id/tiled_login_correo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/nombre_usuario"
-            android:inputType="textNoSuggestions"
+            android:hint="@string/correo_electronico"
+            android:inputType="textEmailAddress"
             android:singleLine="true"
             android:theme="@style/Widget.EditText.EditTextInputLayout" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/til_login_password"
+        android:id="@+id/til_registro_contrasenia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -42,11 +42,11 @@
         app:hintTextAppearance="@style/Widget.TextInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_login_username"
+        app:layout_constraintTop_toBottomOf="@+id/til_login_correo"
         app:passwordToggleEnabled="true">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/tiled_login_password"
+            android:id="@+id/tiled_registro_contrasenia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/contrasenia"
@@ -67,7 +67,7 @@
         android:text="@string/iniciar_sesion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_login_password" />
+        app:layout_constraintTop_toBottomOf="@+id/til_registro_contrasenia" />
 
     <Button
         android:id="@+id/btn_login_registro"
@@ -77,6 +77,7 @@
         android:background="@null"
         android:fontFamily="sans-serif-smallcaps"
         android:text="@string/no_tienes_cuenta"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -89,7 +90,20 @@
         android:background="@null"
         android:fontFamily="sans-serif-smallcaps"
         android:text="@string/olvido_la_contrasenia"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login_login" />
+
+    <TextView
+        android:id="@+id/tv_inicioSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="INICIO DE SESIÓN"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
