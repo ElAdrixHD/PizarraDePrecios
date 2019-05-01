@@ -1,7 +1,10 @@
 package es.adrianmmudarra.pizarradeprecios.ui.dash;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
@@ -13,14 +16,26 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import java.util.ArrayList;
 
 import es.adrianmmudarra.pizarradeprecios.R;
+import es.adrianmmudarra.pizarradeprecios.ui.cooperativa.CooperativaActivity;
 
 public class DashActivity extends AppCompatActivity {
+
+    Button coop, prod;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash);
         BarChart chart = findViewById(R.id.barchart);
+        BarChart chart2 = findViewById(R.id.barchart2);
+        coop = findViewById(R.id.btn_dash_coop);
+        prod = findViewById(R.id.btn_dash_prod);
+        coop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashActivity.this, CooperativaActivity.class));
+            }
+        });
 
         ArrayList NoOfEmp = new ArrayList();
 
@@ -50,8 +65,18 @@ public class DashActivity extends AppCompatActivity {
 
         BarDataSet bardataset = new BarDataSet(NoOfEmp, "No Of Employee");
         chart.animateY(5000);
-        BarData data = new BarData(year,bardataset);
+        chart.setHighlightFullBarEnabled(true);
+        chart.setFitBars(false);
+
         bardataset.setColors(ColorTemplate.COLORFUL_COLORS);
+        BarData data = new BarData(bardataset);
+
         chart.setData(data);
+
+        chart2.animateY(5000);
+        chart2.setHighlightFullBarEnabled(true);
+        chart2.setFitBars(false);
+
+        chart2.setData(data);
     }
 }
