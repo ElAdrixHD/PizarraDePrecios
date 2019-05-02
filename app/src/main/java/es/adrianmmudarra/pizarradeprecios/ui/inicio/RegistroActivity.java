@@ -9,7 +9,7 @@ import es.adrianmmudarra.pizarradeprecios.R;
 
 public class RegistroActivity extends AppCompatActivity {
 
-    Button btn_cancelar;
+    Button btn_cancelar, btn_registrar;
 
 
     @Override
@@ -21,6 +21,13 @@ public class RegistroActivity extends AppCompatActivity {
 
     private void inicializar() {
         btn_cancelar = findViewById(R.id.btn_registro_cancelar);
+        btn_registrar = findViewById(R.id.btn_registro_registar);
+        btn_registrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         btn_cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

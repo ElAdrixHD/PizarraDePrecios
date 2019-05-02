@@ -1,4 +1,4 @@
-package es.adrianmmudarra.pizarradeprecios.ui.cooperativa;
+package es.adrianmmudarra.pizarradeprecios.ui.producto;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -11,32 +11,26 @@ import android.view.MenuItem;
 import android.view.View;
 
 import es.adrianmmudarra.pizarradeprecios.R;
-import es.adrianmmudarra.pizarradeprecios.data.db.repository.CooperativaRepository;
-import es.adrianmmudarra.pizarradeprecios.ui.adapter.CooperativaAdapter;
-import es.adrianmmudarra.pizarradeprecios.ui.dash.DashActivity;
-import es.adrianmmudarra.pizarradeprecios.ui.producto.ProductoActivity;
+import es.adrianmmudarra.pizarradeprecios.data.db.model.Producto;
+import es.adrianmmudarra.pizarradeprecios.data.db.repository.ProductoRepository;
+import es.adrianmmudarra.pizarradeprecios.ui.adapter.ProductoAdapter;
+import es.adrianmmudarra.pizarradeprecios.ui.cooperativa.CooperativaActivity;
 import es.adrianmmudarra.pizarradeprecios.ui.subasta.SubastaActivity;
 
-public class CooperativaActivity extends AppCompatActivity implements View.OnClickListener {
+public class ProductoActivity extends AppCompatActivity implements View.OnClickListener {
 
     RecyclerView recyclerView;
-    CooperativaAdapter adapter;
+    ProductoAdapter adapter;
 
     BottomNavigationView navigationMenu;
     BottomNavigationView.OnNavigationItemSelectedListener listener;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cooperativa);
-        setTitle("Cooperativas");
-        recyclerView = findViewById(R.id.recycler_cooperativa);
-        adapter = new CooperativaAdapter(this,this);
-        adapter.addAll(CooperativaRepository.getCooperativaRepository().getAll());
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        setContentView(R.layout.activity_producto);
+        setTitle("Productos");
 
-        navigationMenu = findViewById(R.id.navigationViewCooperativa);
+        navigationMenu = findViewById(R.id.navigationViewProducto);
         listener = new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -45,23 +39,27 @@ public class CooperativaActivity extends AppCompatActivity implements View.OnCli
                         finish();
                         break;
                     case R.id.navigation_cooperativas:
-
+                        startActivity(new Intent(ProductoActivity.this, CooperativaActivity.class));
                         break;
                     case R.id.navigation_productos:
-                        startActivity(new Intent(CooperativaActivity.this, ProductoActivity.class));
                         break;
                 }
                 return false;
             }
         };
         navigationMenu.setOnNavigationItemSelectedListener(listener);
+
+        recyclerView = findViewById(R.id.recycler_prod);
+        adapter = new ProductoAdapter(this,this);
+        adapter.addAll(ProductoRepository.getProductoRepository().getAll());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
     public void onClick(View v) {
-        Intent i = new Intent(CooperativaActivity.this, SubastaActivity.class);
-        i.putExtra("ID",adapter.getItem(recyclerView.getChildAdapterPosition(v)).getId());
+        Intent i = new Intent(ProductoActivity.this, SubastaActivity.class);
+        i.putExtra("nombre",adapter.getItem(recyclerView.getChildAdapterPosition(v)).getNombre());
         startActivity(i);
-        //Snackbar.make(v, "Cooperativa: " + (adapter.getItem(recyclerView.getChildAdapterPosition(v)).getNombre_cooperativa()), Snackbar.LENGTH_SHORT).show();
     }
 }

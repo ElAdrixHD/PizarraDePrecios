@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -73,6 +74,7 @@ public class CooperativaAdapter extends RecyclerView.Adapter<CooperativaAdapter.
 
     class CooperativaViewHolder extends RecyclerView.ViewHolder{
         TextView nombre_coop;
+        Button btn_subasta;
         public CooperativaViewHolder(View view){
             super(view);
             nombre_coop = view.findViewById(R.id.tv_nombre_cooperativa_view);

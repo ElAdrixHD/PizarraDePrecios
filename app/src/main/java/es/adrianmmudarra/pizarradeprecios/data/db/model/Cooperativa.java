@@ -1,6 +1,7 @@
 package es.adrianmmudarra.pizarradeprecios.data.db.model;
 
 public class Cooperativa {
+    int id;
     String nombre_cooperativa;
     String dirección;
     String num_telefono;
@@ -8,13 +9,23 @@ public class Cooperativa {
     String foto;
 
 
-    public Cooperativa(String nombre_cooperativa, String dirección, String num_telefono, String email, String foto) {
+    public Cooperativa(int id, String nombre_cooperativa, String dirección, String num_telefono, String email, String foto) {
+        this.id = id;
         this.nombre_cooperativa = nombre_cooperativa;
         this.dirección = dirección;
         this.num_telefono = num_telefono;
         this.email = email;
         this.foto = foto;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
     public String getNombre_cooperativa() {
         return nombre_cooperativa;

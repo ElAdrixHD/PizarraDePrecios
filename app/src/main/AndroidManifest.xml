@@ -9,10 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.cooperativa.CooperativaActivity"></activity>
+        <activity android:name=".ui.producto.ProductoActivity"></activity>
+        <activity android:name=".ui.subasta.SubastaActivity" />
+        <activity android:name=".ui.cooperativa.CooperativaActivity" />
         <activity android:name=".ui.dash.DashActivity" />
-        <activity android:name=".ui.inicio.RegistroActivity" />
-        <activity android:name=".ui.inicio.LoginActivity">
+        <activity
+            android:name=".ui.inicio.RegistroActivity"
+            android:theme="@style/AppThemeNoBar" />
+        <activity
+            android:name=".ui.inicio.LoginActivity"
+            android:theme="@style/AppThemeNoBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,8 +1,11 @@
 package es.adrianmmudarra.pizarradeprecios.ui.dash;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -10,32 +13,44 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
 import es.adrianmmudarra.pizarradeprecios.R;
 import es.adrianmmudarra.pizarradeprecios.ui.cooperativa.CooperativaActivity;
+import es.adrianmmudarra.pizarradeprecios.ui.producto.ProductoActivity;
 
 public class DashActivity extends AppCompatActivity {
 
-    Button coop, prod;
+    BottomNavigationView navigationMenu;
+    BottomNavigationView.OnNavigationItemSelectedListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash);
+        setTitle("Pantalla Principal");
         BarChart chart = findViewById(R.id.barchart);
         BarChart chart2 = findViewById(R.id.barchart2);
-        coop = findViewById(R.id.btn_dash_coop);
-        prod = findViewById(R.id.btn_dash_prod);
-        coop.setOnClickListener(new View.OnClickListener() {
+        navigationMenu = findViewById(R.id.navigationViewDash);
+        listener = new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DashActivity.this, CooperativaActivity.class));
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.navigation_inicio:
+                        break;
+                    case R.id.navigation_cooperativas:
+                        startActivity(new Intent(DashActivity.this, CooperativaActivity.class));
+                        break;
+                    case R.id.navigation_productos:
+                        startActivity(new Intent(DashActivity.this, ProductoActivity.class));
+                        break;
+                }
+                return false;
             }
-        });
+        };
+        navigationMenu.setOnNavigationItemSelectedListener(listener);
 
         ArrayList NoOfEmp = new ArrayList();
 

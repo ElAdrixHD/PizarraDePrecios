@@ -1,24 +1,30 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+    <style name="AppThemeNoBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/accent</item>
     </style>
 
     <style name="Widget.TextInputLayout" parent="AppTheme">
         <item name="android:textSize">@dimen/textSize_TextInputLayout</item>
-        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
     </style>
 
     <style name="Widget.EditText.EditTextInputLayout" parent="AppTheme">
         <item name="android:textSize">@dimen/textSize_EditTextInputLayout</item>
-        <item name="android:textColorHint">@color/secondary_text</item>
+        <item name="android:textColorHint">@color/primaryTextColor</item>
     </style>
 
     <style name="Widget.TextInputLayout.Error" parent="AppTheme">
         <item name="android:textSize">@dimen/textSize_EditTextInputLayoutError</item>
-        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@color/primaryDarkColor</item>
     </style>
 </resources>

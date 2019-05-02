@@ -6,41 +6,48 @@ import es.adrianmmudarra.pizarradeprecios.data.db.model.Cooperativa;
 
 public class CooperativaRepository {
     private ArrayList<Cooperativa> cooperativas;
-    private static  CooperativaRepository cooperativaRepository;
+    private static CooperativaRepository cooperativaRepository;
 
     //INICIALIZACIÓN ESTÁTICA DE CLASE
     static {
         cooperativaRepository = new CooperativaRepository();
     }
 
-    private CooperativaRepository(){
+    private CooperativaRepository() {
         this.cooperativas = new ArrayList<>();
         initialice();
     }
 
     private void initialice() {
-        add(new Cooperativa("AgrupaAdra","Calle X, Nº Y", "999999999", "asd@asd.com","null"));
-        add(new Cooperativa("AgrupaEjido","Calle X, Nº Y", "999999999", "asd@asd.com","null"));
-        add(new Cooperativa("Casi","Calle X, Nº Y", "999999999", "asd@asd.com","null"));
-        add(new Cooperativa("Agroponiente","Calle X, Nº Y", "999999999", "asd@asd.com","null"));
-        add(new Cooperativa("Otra cooperativa","Calle X, Nº Y", "999999999", "asd@asd.com","null"));
-        add(new Cooperativa("Prueba mas","Calle X, Nº Y", "999999999", "asd@asd.com","null"));
-        add(new Cooperativa("Aun mas","Calle X, Nº Y", "999999999", "asd@asd.com","null"));
+        add(new Cooperativa(1, "AgrupaAdra", "Calle X, Nº Y", "999999999", "asd@asd.com", "null"));
+        add(new Cooperativa(2, "AgrupaEjido", "Calle X, Nº Y", "999999999", "asd@asd.com", "null"));
+        add(new Cooperativa(3, "Casi", "Calle X, Nº Y", "999999999", "asd@asd.com", "null"));
+        add(new Cooperativa(4, "Agroponiente", "Calle X, Nº Y", "999999999", "asd@asd.com", "null"));
+        add(new Cooperativa(5, "Otra cooperativa", "Calle X, Nº Y", "999999999", "asd@asd.com", "null"));
+        add(new Cooperativa(6, "Prueba mas", "Calle X, Nº Y", "999999999", "asd@asd.com", "null"));
+        add(new Cooperativa(7, "Aun mas", "Calle X, Nº Y", "999999999", "asd@asd.com", "null"));
 
     }
 
-    /**
-     *  Método que añade una dependencia al repositorio
-     */
     private void add(Cooperativa dependency) {
         cooperativas.add(dependency);
     }
 
-    public ArrayList<Cooperativa> getAll(){
+    public ArrayList<Cooperativa> getAll() {
         return this.cooperativas;
     }
 
-    public static CooperativaRepository getDependencyRepository() {
+    public Cooperativa getCooperativaByID(int id) {
+        for (Cooperativa c : cooperativas) {
+            if (c.getId() == id) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+
+    public static CooperativaRepository getCooperativaRepository() {
         return  cooperativaRepository;
     }
 
