@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.inicio.RegistroActivity"
+    tools:context=".ui.inicio.RegisterView"
     android:background="@color/primaryColor"
     android:padding="@dimen/login_padding">
 
     <Button
-        android:id="@+id/btn_registro_cancelar"
+        android:id="@+id/btn_register_cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@null"
         android:fontFamily="sans-serif-smallcaps"
@@ -21,10 +21,10 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_registro_registar" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_register_register" />
 
     <Button
-        android:id="@+id/btn_registro_registar"
+        android:id="@+id/btn_register_register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -35,23 +35,24 @@
         android:text="Registratse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_registro_contrasenia" />
+        app:layout_constraintTop_toBottomOf="@+id/til_register_password" />
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/til_registro_nombre"
+        android:id="@+id/til_register_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        app:errorEnabled="false"
         app:errorTextAppearance="@style/Widget.TextInputLayout.Error"
         app:hintTextAppearance="@style/Widget.TextInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Registro">
+        app:layout_constraintTop_toBottomOf="@+id/tv_register_title">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/tiled_registro_nombre"
+            android:id="@+id/tiled_register_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nombre"
@@ -60,51 +61,56 @@
     </android.support.design.widget.TextInputLayout>
 
     <TextView
-        android:id="@+id/tv_Registro"
+        android:id="@+id/tv_register_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="REGISTRO"
+        android:textColor="#000000"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/till_registro_apellidos"
+        android:id="@+id/till_register_lastname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        app:errorEnabled="false"
         app:errorTextAppearance="@style/Widget.TextInputLayout.Error"
         app:hintTextAppearance="@style/Widget.TextInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_registro_nombre">
+        app:layout_constraintTop_toBottomOf="@+id/til_register_name">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/tiled_registro_apellidos"
+            android:id="@+id/tiled_register_lastname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Apellidos"
-            android:theme="@style/Widget.EditText.EditTextInputLayout"/>
+            android:theme="@style/Widget.EditText.EditTextInputLayout" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/til_registro_email"
+        android:id="@+id/til_register_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        app:errorEnabled="false"
+        app:errorTextAppearance="@style/Widget.TextInputLayout.Error"
+        app:hintTextAppearance="@style/Widget.TextInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/till_registro_apellidos">
+        app:layout_constraintTop_toBottomOf="@+id/till_register_lastname">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/tiled_registro_email"
+            android:id="@+id/tiled_register_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Correo electrónico"
@@ -114,21 +120,22 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/til_registro_contrasenia"
+        android:id="@+id/til_register_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        app:errorEnabled="false"
         app:errorTextAppearance="@style/Widget.TextInputLayout.Error"
         app:hintTextAppearance="@style/Widget.TextInputLayout"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_registro_email"
+        app:layout_constraintTop_toBottomOf="@+id/til_register_email"
         app:passwordToggleEnabled="true">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/tiled_registro_contrasenia"
+            android:id="@+id/tiled_register_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/contrasenia"
@@ -138,28 +145,28 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/til_registro_confirmar"
+        android:id="@+id/til_register_confirm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        app:errorEnabled="false"
         app:errorTextAppearance="@style/Widget.TextInputLayout.Error"
         app:hintTextAppearance="@style/Widget.TextInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:passwordToggleEnabled="true"
-        app:layout_constraintTop_toBottomOf="@+id/til_registro_email">
+        app:layout_constraintTop_toBottomOf="@+id/til_register_email"
+        app:passwordToggleEnabled="true">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/tiled_registro_confirmar"
+            android:id="@+id/tiled_register_confirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirmar"
             android:inputType="textPassword"
             android:singleLine="true"
-            android:theme="@style/Widget.EditText.EditTextInputLayout"
-            />
+            android:theme="@style/Widget.EditText.EditTextInputLayout" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.constraint.Guideline

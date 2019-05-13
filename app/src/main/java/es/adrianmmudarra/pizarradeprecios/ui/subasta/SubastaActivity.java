@@ -20,11 +20,13 @@ import java.util.Calendar;
 import java.util.Date;
 
 import es.adrianmmudarra.pizarradeprecios.R;
+import es.adrianmmudarra.pizarradeprecios.data.db.model.Cooperativa;
 import es.adrianmmudarra.pizarradeprecios.data.db.model.Producto;
 import es.adrianmmudarra.pizarradeprecios.data.db.repository.CooperativaRepository;
 import es.adrianmmudarra.pizarradeprecios.data.db.repository.ProductoRepository;
 import es.adrianmmudarra.pizarradeprecios.data.db.repository.SubastaRepository;
 import es.adrianmmudarra.pizarradeprecios.ui.adapter.SubastaAdapter;
+import es.adrianmmudarra.pizarradeprecios.ui.cooperativa.CooperativaActivity;
 import es.adrianmmudarra.pizarradeprecios.ui.dash.DashActivity;
 import es.adrianmmudarra.pizarradeprecios.ui.producto.ProductoActivity;
 
@@ -84,7 +86,7 @@ public class SubastaActivity extends AppCompatActivity implements View.OnClickLi
                         startActivity(new Intent(SubastaActivity.this,DashActivity.class));
                         break;
                     case R.id.navigation_cooperativas:
-                        finish();
+                        startActivity(new Intent(SubastaActivity.this, CooperativaActivity.class));
                         break;
                     case R.id.navigation_productos:
                         startActivity(new Intent(SubastaActivity.this, ProductoActivity.class));

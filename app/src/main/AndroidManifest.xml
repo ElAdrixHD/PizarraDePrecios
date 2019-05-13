@@ -4,6 +4,7 @@
 
     <application
         android:allowBackup="true"
+        android:name=".ApplicationPizarraContext"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -14,10 +15,10 @@
         <activity android:name=".ui.cooperativa.CooperativaActivity" />
         <activity android:name=".ui.dash.DashActivity" />
         <activity
-            android:name=".ui.inicio.RegistroActivity"
+            android:name=".ui.inicio.RegisterView"
             android:theme="@style/AppThemeNoBar" />
         <activity
-            android:name=".ui.inicio.LoginActivity"
+            android:name=".ui.inicio.LoginView"
             android:theme="@style/AppThemeNoBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

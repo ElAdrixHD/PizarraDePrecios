@@ -25,6 +25,6 @@
 
     <style name="Widget.TextInputLayout.Error" parent="AppTheme">
         <item name="android:textSize">@dimen/textSize_EditTextInputLayoutError</item>
-        <item name="android:textColor">@color/primaryDarkColor</item>
+        <item name="android:textColor">@color/error</item>
     </style>
 </resources>
