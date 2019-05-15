@@ -1,18 +1,17 @@
 package es.adrianmmudarra.pizarradeprecios.ui.inicio;
 
-import android.content.Context;
 import android.os.Handler;
 import android.text.TextUtils;
 
-import es.adrianmmudarra.pizarradeprecios.ApplicationPizarraContext;
 import es.adrianmmudarra.pizarradeprecios.data.db.model.User;
+import es.adrianmmudarra.pizarradeprecios.data.db.repository.UserRepository;
 
 public class LoginRegisterInteractor {
 
-    public void loginCredentials(final String email, final String password, final LoginInteractor listener, final Context context){
+    public void loginCredentials(final String email, final String password, final LoginInteractor listener){
         if (checkLoginEmail(email,listener) & checkLoginPassword(password,listener)){
             new Handler().postDelayed(() -> {
-                if (((ApplicationPizarraContext)context.getApplicationContext()).getUserRepository().validateUser(email,password)){
+                if (UserRepository.getInstance().validateUser(email,password)){
                     listener.onSuccess();
                 }else {
                     listener.onLoginError();
@@ -21,13 +20,13 @@ public class LoginRegisterInteractor {
         }
     }
 
-    public void registerUser(String email, String password, String confirm, String name, String lastname, RegisterInteractor listener, Context context){
+    public void registerUser(String email, String password, String confirm, String name, String lastname, RegisterInteractor listener){
         if ((checkRegisterEmail(email,listener) & checkRegisterPassword(password,listener) & checkRegisterPasswordConfirm(confirm,listener) & checkRegisterName(name,listener) & checkRegisterLastName(lastname,listener)) && checkRegisterMatchPassword(password,confirm,listener)){
             new Handler().postDelayed(()-> {
-                if (((ApplicationPizarraContext)context.getApplicationContext()).getUserRepository().existUser(email)){
+                if (UserRepository.getInstance().existUser(email)){
                     listener.onEmailExistsError();
                 }else {
-                    ((ApplicationPizarraContext)context.getApplicationContext()).getUserRepository().registerUser(new User(name,lastname,email,password));
+                    UserRepository.getInstance().registerUser(new User(name,lastname,email,password));
                     listener.onSuccess();
                 }
             },2000);

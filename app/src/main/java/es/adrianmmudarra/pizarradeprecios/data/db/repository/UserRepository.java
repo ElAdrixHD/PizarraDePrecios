@@ -7,6 +7,15 @@ import es.adrianmmudarra.pizarradeprecios.data.db.model.User;
 public class UserRepository {
 
     ArrayList<User> users;
+    private static UserRepository userRepository;
+
+    static {
+        userRepository = new UserRepository();
+    }
+
+    public static UserRepository getInstance(){
+        return userRepository;
+    }
 
     public UserRepository() {
         this.users = new ArrayList<>();

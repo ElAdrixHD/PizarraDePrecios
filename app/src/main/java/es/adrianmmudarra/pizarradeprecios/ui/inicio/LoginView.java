@@ -43,7 +43,7 @@ public class LoginView extends AppCompatActivity implements LoginContract.View, 
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_login_login:
-                presenter.validateCredentials(tiled_email.getText().toString(),tiled_password.getText().toString(),this);
+                presenter.validateCredentials(tiled_email.getText().toString(),tiled_password.getText().toString());
                 break;
             case R.id.btn_login_register:
                 startActivity(new Intent(LoginView.this, RegisterView.class));

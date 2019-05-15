@@ -11,11 +11,10 @@ import android.view.MenuItem;
 import android.view.View;
 
 import es.adrianmmudarra.pizarradeprecios.R;
-import es.adrianmmudarra.pizarradeprecios.data.db.model.Producto;
 import es.adrianmmudarra.pizarradeprecios.data.db.repository.ProductoRepository;
 import es.adrianmmudarra.pizarradeprecios.ui.adapter.ProductoAdapter;
-import es.adrianmmudarra.pizarradeprecios.ui.cooperativa.CooperativaActivity;
-import es.adrianmmudarra.pizarradeprecios.ui.subasta.SubastaActivity;
+import es.adrianmmudarra.pizarradeprecios.ui.cooperativa.CooperativaFragment;
+
 
 public class ProductoActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -30,25 +29,6 @@ public class ProductoActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_producto);
         setTitle("Productos");
 
-        navigationMenu = findViewById(R.id.navigationViewProducto);
-        listener = new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()){
-                    case R.id.navigation_inicio:
-                        finish();
-                        break;
-                    case R.id.navigation_cooperativas:
-                        startActivity(new Intent(ProductoActivity.this, CooperativaActivity.class));
-                        break;
-                    case R.id.navigation_productos:
-                        break;
-                }
-                return false;
-            }
-        };
-        navigationMenu.setOnNavigationItemSelectedListener(listener);
-
         recyclerView = findViewById(R.id.recycler_prod);
         adapter = new ProductoAdapter(this,this);
         adapter.addAll(ProductoRepository.getProductoRepository().getAll());
@@ -58,8 +38,8 @@ public class ProductoActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        Intent i = new Intent(ProductoActivity.this, SubastaActivity.class);
-        i.putExtra("nombre",adapter.getItem(recyclerView.getChildAdapterPosition(v)).getNombre());
-        startActivity(i);
+//        Intent i = new Intent(ProductoActivity.this, SubastaActivity.class);
+//        i.putExtra("nombre",adapter.getItem(recyclerView.getChildAdapterPosition(v)).getNombre());
+//        startActivity(i);
     }
 }

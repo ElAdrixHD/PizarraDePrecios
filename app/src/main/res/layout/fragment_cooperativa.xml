@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.producto.ProductoActivity">
+    tools:context=".ui.cooperativa.CooperativaFragment" android:background="@color/primaryColor">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_prod"
-        android:layout_width="match_parent"
+        android:id="@+id/recycler_cooperativa"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -18,5 +18,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </android.support.constraint.ConstraintLayout>

@@ -44,6 +44,12 @@ public class DashFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        ((DashActivity)getActivity()).setNavegationCheck(0);
+    }
+
+    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         NoOfEmp.add(new BarEntry(945f, 0));

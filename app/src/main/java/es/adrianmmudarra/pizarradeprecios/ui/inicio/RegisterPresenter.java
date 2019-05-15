@@ -86,8 +86,8 @@ public class RegisterPresenter implements RegisterContract.Presenter, LoginRegis
     }
 
     @Override
-    public void registerUser(String name, String lastname, String email, String password, String passwordConfirm, Context context) {
+    public void registerUser(String name, String lastname, String email, String password, String passwordConfirm) {
         view.showProgressBar();
-        interactor.registerUser(email,password,passwordConfirm,name,lastname,this,context);
+        interactor.registerUser(email,password,passwordConfirm,name,lastname,this);
     }
 }

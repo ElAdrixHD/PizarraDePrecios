@@ -22,6 +22,6 @@ public class RegisterContract {
     }
 
     public interface Presenter{
-        void registerUser(String name, String lastname, String email, String password, String passwordConfirm, Context context);
+        void registerUser(String name, String lastname, String email, String password, String passwordConfirm);
     }
 }

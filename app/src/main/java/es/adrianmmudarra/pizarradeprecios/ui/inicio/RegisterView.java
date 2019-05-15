@@ -54,7 +54,7 @@ public class RegisterView extends AppCompatActivity implements RegisterContract.
                 finish();
                 break;
             case R.id.btn_register_register:
-                presenter.registerUser(tiled_name.getText().toString(),tiled_lastname.getText().toString(),tiled_email.getText().toString(),tiled_password.getText().toString(),tiled_passwordconfirm.getText().toString(),this);
+                presenter.registerUser(tiled_name.getText().toString(),tiled_lastname.getText().toString(),tiled_email.getText().toString(),tiled_password.getText().toString(),tiled_passwordconfirm.getText().toString());
                 break;
         }
     }

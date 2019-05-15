@@ -15,6 +15,6 @@ public class LoginContract {
     }
 
     public interface Presenter{
-        void validateCredentials(String email, String password, Context context);
+        void validateCredentials(String email, String password);
     }
 }

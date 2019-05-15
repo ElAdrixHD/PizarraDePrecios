@@ -13,9 +13,9 @@ public class LoginPresenter implements LoginContract.Presenter, LoginRegisterInt
     }
 
     @Override
-    public void validateCredentials(String email, String password, Context context) {
+    public void validateCredentials(String email, String password) {
         view.showProgressBar();
-        interactor.loginCredentials(email,password,this,context);
+        interactor.loginCredentials(email,password,this);
     }
 
     @Override
