@@ -41,7 +41,7 @@ public class SubastaFragment extends Fragment implements View.OnClickListener, S
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.activity_subasta,container,false);
+        View v = inflater.inflate(R.layout.fragment_subasta,container,false);
         if (v != null){
             initialize(v);
         }
